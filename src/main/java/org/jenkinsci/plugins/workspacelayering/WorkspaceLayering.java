@@ -1,19 +1,11 @@
 package org.jenkinsci.plugins.workspacelayering;
 import hudson.Extension;
-import hudson.FilePath;
 import hudson.Launcher;
-import hudson.Proc;
 import hudson.model.AbstractBuild;
 import hudson.model.BuildListener;
 import hudson.model.Descriptor;
-import hudson.model.Run;
-import hudson.model.TaskListener;
-import hudson.remoting.Channel;
-import hudson.remoting.VirtualChannel;
 import hudson.tasks.BuildWrapper;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Map;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 public class WorkspaceLayering extends BuildWrapper {
@@ -30,9 +22,8 @@ public class WorkspaceLayering extends BuildWrapper {
     }
     
     @Override
-    public Launcher decorateLauncher(AbstractBuild build, Launcher launcher, BuildListener listener) throws IOException, InterruptedException, Run.RunnerAbortedException {
-        //do layering
-        return launcher;
+    public void preCheckout(AbstractBuild build, Launcher launcher, BuildListener listener) throws IOException, InterruptedException{
+        Launcher a = launcher;
     }
     
     @Override
